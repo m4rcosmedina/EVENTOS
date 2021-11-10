@@ -1,18 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.js">
-    
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+    </style>
+
     <title>Document</title>
 </head>
+
 <body>
-    
-    
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Practica CRUD <img src="/media/destello.png" class="rayito"
+                        height="40" width="40"> </img> </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/admin.html">Administrar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="my-5">
+            <h1 class="display-3 text-center">Productos Destacados
+            </h1>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Pedal/ Pedales Automaticos HT Modelo M1 Black</h5>
+                            <img src="/media/ckkkkkkk1-a18508486aa39c50d116263000197505-1024-1024.jpg"
+                                class="card-img-top w-200" alt="...">
+                            <p class="card-text"></p>
+                            <a href="#" class="btn btn-warning" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#producto1" aria-controls="offcanvasRight">Ver mas detalles</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Cubierta Maxxis High Roller 2 R29 x 2.3 Exo/TR</h5>
+                            <img src="/media/maxxis-highroller-ii-dual-exo-protection-tr-29-cubierta-plegable-35860-0-1547822072-600x4501-83419b81c33b2b663c15893846689922-640-0.jpeg"
+                                class="card-img-top w-200" alt="...">
+                            <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit,
+                                quasi?.
+                            </p>
+                            <a href="#" class="btn btn-warning" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#producto2" aria-controls="offcanvasRight">Ver mas detalles</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Manubrio Renthal Fatbar 35 MM</h5>
+                            <img src="/media/dorado1-99f5989a23c8d6f27b16204034079161-640-0.jpg"
+                                class="card-img-top w-200" alt="...">
+                            <p class="card-text">
+                            </p>
+                            <a href="#" class="btn btn-warning" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#producto3" aria-controls="offcanvasRight">Ver mas detalles</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Producto de prueba</h5>
+                            <img src="..." class="card-img-top" alt="...">
+                            <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit,
+                                quasi?.
+                            </p>
+                            <a href="#" class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Ver mas detalles</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Producto de prueba</h5>
+                            <img src="..." class="card-img-top" alt="...">
+                            <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit,
+                                quasi?.
+                            </p>
+                            <a href="#" class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Ver mas detalles</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Producto de prueba</h5>
+                            <img src="..." class="card-img-top" alt="...">
+                            <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit,
+                                quasi?.
+                            </p>
+                            <a href="#" class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Ver mas detalles</a>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <!--off canvas-->
+        <div class="offcanvas-body">
+            ...
+        </div>
+        </div>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="producto1" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 id="offcanvasRightLabel">Pedal/ Pedales Automaticos HT Modelo M1 Black</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <p>Características
+
+                    Aleación de aluminio serie 7 de alta resistencia
+                    Granallado para aumentar la vida útil a la fatiga
+                    Acabado anodizado duro resistente a la corrosión y la abrasión
+                    Rejilla de posicionamiento grabada con láser para una fácil instalación
+                    Las marcas de ancho permiten un ajuste personalizado
+                    Gráficos permanentes
+                    Diámetro: 35 mm.
+                    Anchura: 800 mm.
+                    Elevación: 30 mm.
+                    Angulación hacia atrás: 7 grados.
+                    Angulación hacia arriba: 5 grados.
+                    Peso: 305 g.</p>
+            </div>
+        </div>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="producto2" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 id="offcanvasRightLabel">Cubierta Maxxis High Roller 2 R29 x 2.3 Exo/TR</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <p>Un diseño abierto y agresivo de la banda de rodadura le da al High Roller II una excelente capacidad
+                    de penetración del suelo y de limpieza del lodo. Un perfil cuadrado proporciona una sensación sólida
+                    y consistente en las perillas. Las perillas modificadas en el hombro y el centro mejoran el
+                    rendimiento de frenado y la tracción en superficies duras. Una excelente opción para terrenos
+                    técnicos y sueltos. El High Roller II está disponible en especificaciones de trail, enduro y cuesta
+                    abajo.
+
+                    La segunda generación del legendario High Roller
+                    Limpia fácilmente los escombros
+                    Diseño abierto de la banda de rodadura</p>
+
+            </div>
+        </div>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="producto3" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 id="offcanvasRightLabel">Manubrio Renthal Fatbar 35 (800X30MM) Dorado</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <p>
+
+
+                    El Renthal Fatbar ya ha ganado un estatus de culto y es el manillar elegido por los equipos y
+                    atletas de carreras de descenso de la Copa del Mundo. Se han ganado ocho medallas de oro del
+                    Campeonato del Mundo con el Fatbar, consolidándolo como uno de los productos de carreras más
+                    exitosos de todos los tiempos.
+
+                    Diseñamos el Fatbar para que sea la combinación definitiva de ligereza, resistencia y durabilidad.
+                    El Fatbar también ofrece al ciclista la opción más amplia, con cuatro opciones de elevación
+                    diferentes, para adaptarse a cada bicicleta y ciclista.
+
+                    Los manillares Renthal® Fatbar® están diseñados para conducir más rápido, saltar más lejos y durar
+                    más.
+
+                    Características
+
+                    Aleación de aluminio serie 7 de alta resistencia
+                    Granallado para aumentar la vida útil a la fatiga
+                    Acabado anodizado duro resistente a la corrosión y la abrasión
+                    Rejilla de posicionamiento grabada con láser para una fácil instalación
+                    Las marcas de ancho permiten un ajuste personalizado
+                    Gráficos permanentes
+                    Diámetro: 35 mm.
+                    Anchura: 800 mm.
+                    Elevación: 30 mm.
+                    Angulación hacia atrás: 7 grados.
+                    Angulación hacia arriba: 5 grados.
+                    Peso: 305 g.
+                </p>
+
+            </div>
+        </div>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+
+            </div>
+        </div>
+    </main>
+
+
+
+
+
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/app.js"> </script>
 </body>
+
 </html>
