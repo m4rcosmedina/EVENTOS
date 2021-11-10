@@ -18,7 +18,8 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">Practica CRUD <img src="/media/destello.png" class="rayito" height="40" width="40">  </img></a>
+                <a class="navbar-brand" href="index.html">Practica CRUD <img src="/media/destello.png" class="rayito"
+                        height="40" width="40"> </img></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -43,9 +44,12 @@
 
             <h1 class="display-3 text-center ">Administrar productos</h1>
             <hr>
+            <form id="formProducto">
             <div class="mb-3">
                 <label for="codigo" class="form-label">Código</label>
                 <input type="text" class="form-control" id="codigo" placeholder="123">
+
+                <div class="invalid-feedback">Debe ingresar un codigo alfanumerico</div>
             </div>
             <div class="mb-3">
                 <label for="producto" class="form-label">Producto</label>
@@ -64,7 +68,7 @@
                 <input type="text" class="form-control" id="url" placeholder="">
             </div>
             <button class="btn btn-danger" type="submit">Guardar</button>
-
+        </form>
         </section>
 
 
@@ -72,9 +76,9 @@
         <section class="my-5">
             <h1 class="display-3 text-center">Tabla de productos</h1>
             <hr>
-            <button class="btn btn-success" type="submit">Nuevo</button> 
+            <button class="btn btn-success" type="submit">Nuevo</button>
             <button class="btn btn-light" type="submit">Cargar datos de prueba</button>
-            
+
 
 
             <table class="table">
@@ -115,7 +119,7 @@
                     </tr>
                     <tr>
                         <th scope="row">003</th>
-                        <td >Cadena</td>
+                        <td>Cadena</td>
                         <td>Kmc 11.93 11v Easy link</td>
                         <td>20</td>
                         <td>@</td>
@@ -148,7 +152,7 @@
                     </tr>
                     <tr>
                         <th scope="row">006</th>
-                        <td >Pedales automáticos</td>
+                        <td>Pedales automáticos</td>
                         <td>HT m1 blacl</td>
                         <td>8</td>
                         <td>@</td>
