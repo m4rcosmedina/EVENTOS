@@ -45,6 +45,7 @@ function validarGeneral(e) {
     //prevenir el actualizar del submit
     e.preventDefault();
     console.log('desde la funcoin validar general');
+
     let alerta = document.getElementById('msj');
 
     if (campoRequerido(campoCodigo) &&
@@ -55,12 +56,10 @@ function validarGeneral(e) {
     ) {
         console.log('los datos estan listos para ser enviados')
         alerta.className = 'alert alert-info my-5 d-none';
-
     } else {
         console.log('los datos estan mal');
         alerta.className = 'alert alert-info my-5';
     }
-
 }
 
 //traer el elemento requerido desde el html
