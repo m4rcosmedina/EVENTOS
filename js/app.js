@@ -12,6 +12,7 @@ let campoURL = document.querySelector('#url');
 let formularioProducto = document.querySelector('#formProducto');
 //si hay algo en el arreglo, quiero guardarlo. Si no, que sea un arreglo vacio.
 let listaProductos = JSON.parse(localStorage.getItem('arregloProductosKey')) || [];
+console.log(listaProductos)
 
 // asociar un evento a un elemento html
 campoCodigo.addEventListener('blur', () => {
@@ -35,11 +36,10 @@ function guardarProducto(e){
     // verificar que todos los datos sean validados
         e.preventDefault()
         if(validarGeneral(campoCodigo,campoProducto,campoDescripcion,campoCantidad,campoURL)){
-
+            //crear un producto
             crearProducto();
         }
-    //crear un producto
-    crearProducto();
+    
 }
 
 function crearProducto(){
