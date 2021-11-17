@@ -36,8 +36,10 @@ export function validarURL(input) {
     if (patron.test(input.value)) {
         //cumple con la expreson regular
         input.className = 'form-control is-valid';
+        return true
     } else {
         input.className = 'form-control is-invalid';
+        return false
     }
 }
 
@@ -54,11 +56,11 @@ export function validarGeneral(campoCodigo,campoProducto,campoDescripcion,campoC
         validarURL(campoURL)
     ) {
         console.log('los datos estan listos para ser enviados')
-        msj.className = 'alert alert-info my-5 d-none';
+        alerta.className = 'alert alert-info my-5 d-none';
         return true;
     } else {
         console.log('los datos estan mal');
-        msj.className = 'alert alert-info my-5';
+        alerta.className = 'alert alert-info my-5';
         return false;
     }
 }

@@ -1,4 +1,7 @@
 import{campoRequerido,validarNumeros,validarURL,validarGeneral} from './validaciones.js'
+import{Producto} from './productoClass.js';
+
+
 
 //traer el elemento requerido desde el html
 let campoCodigo = document.querySelector('#codigo');
@@ -7,6 +10,7 @@ let campoDescripcion = document.querySelector('#descripcion');
 let campoCantidad = document.querySelector('#cantidad');
 let campoURL = document.querySelector('#url')
 let formularioProducto = document.querySelector('#formProducto')
+let listaProductos = []
 
 // asociar un evento a un elemento html
 campoCodigo.addEventListener('blur', () => {
@@ -38,6 +42,22 @@ function guardarProducto(e){
 }
 
 function crearProducto(){
-    // crear un producto
-    console.log('aqui tengo que crear el producto')
+    // crear un objeto producto
+    let productoNuevo =new Producto(campoCodigo.value, campoProducto.value, campoDescripcion.value,campoCantidad.value,campoURL.value);
+    //guardar el obj dentro del arreglo del producto
+    listaProductos.push(productoNuevo);
+    console.log(listaProductos)
+    //limpiar formulario
+    limpiarFormulario();
+
+}
+
+function limpiarFormulario(){
+    formularioProducto.reset();
+    //resetear las clases
+    campoCodigo.className = 'form-control'
+    campoProducto.className = 'form-control'
+    campoDescripcion.className = 'form-control'
+    campoCantidad.className = 'form-control'
+    campoURL.className = 'form-control'
 }
