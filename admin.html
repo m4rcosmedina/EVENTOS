@@ -47,7 +47,7 @@
             <form id="formProducto">
             <div class="mb-3">
                 <label for="codigo" class="form-label">Código</label>
-                <input type="text" class="form-control" id="codigo" placeholder="123">
+                <input type="text" class="form-control" id="codigo" placeholder="123" disabled>
 
                 <div class="invalid-feedback">Debe ingresar un codigo alfanumerico</div>
             </div>
@@ -67,7 +67,7 @@
                 <label for="url" class="form-label">Url</label>
                 <input type="text" class="form-control" id="url" placeholder="">
             </div>
-            <button class="btn btn-danger" type="submit">Guardar</button>
+            <button class="btn btn-danger" type="submit" onclick="generarNumero()">Guardar</button>
         </form>
         <div class="alert alert-info my-5 d-none" role="alert" id='msj'>
             Debe completar todos los campos

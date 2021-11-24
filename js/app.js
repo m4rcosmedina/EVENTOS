@@ -4,7 +4,9 @@ import{Producto} from './productoClass.js';
 
 
 //traer el elemento requerido desde el html
-let campoCodigo = document.querySelector('#codigo');
+/*let campoCodigo = document.querySelector('#codigo');*/
+let campoCodigo = JSON.parse(localStorage.generarNumero()) || [];
+console.log(campoCodigo)
 let campoProducto = document.querySelector('#producto');
 let campoDescripcion = document.querySelector('#descripcion');
 let campoCantidad = document.querySelector('#cantidad');
@@ -15,9 +17,9 @@ let listaProductos = JSON.parse(localStorage.getItem('arregloProductosKey')) || 
 console.log(listaProductos)
 
 // asociar un evento a un elemento html
-campoCodigo.addEventListener('blur', () => {
+/*campoCodigo.addEventListener('blur', () => {
     campoRequerido(campoCodigo)
-}); // cuando la funcion no tiene parametros,cono solo poner el nombre de la funcion es necesario. Si no, debemos poner una funcion anonima, y ahi llamar a la nueva funcion
+}); // cuando la funcion no tiene parametros,cono solo poner el nombre de la funcion es necesario. Si no, debemos poner una funcion anonima, y ahi llamar a la nueva funcion*/
 campoProducto.addEventListener('blur', () => {
     campoRequerido(campoProducto)
 });
@@ -68,3 +70,17 @@ function limpiarFormulario(){
 function guardarLocalStorage() {
     localStorage.setItem('arregloProductosKey', JSON.stringify(listaProductos))
 }
+
+
+
+function generarNumero() {
+    let numero = Math.floor(Math.random() * 9 + 1);
+
+    if (numeros.includes(numero)) {
+        console.log('repetido')
+    } else {
+        numeros.push(numero);
+        numeros.sort()
+    } 
+}
+
