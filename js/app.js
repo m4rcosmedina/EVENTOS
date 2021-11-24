@@ -32,6 +32,9 @@ campoURL.addEventListener('blur', () => {
 });
 formularioProducto.addEventListener('submit', guardarProducto);
 
+//llamo a carga inicial
+cargaInicial();
+
 function guardarProducto(e){
     // verificar que todos los datos sean validados
         e.preventDefault()
@@ -52,6 +55,14 @@ function crearProducto(){
     limpiarFormulario();
     //guardar el arreglo en localStorage
     guardarLocalStorage();
+    //mostrar un cartel al usuario!
+    Swal.fire(
+        'Producto cargado con exito',
+        'Capo',
+        'success'
+      )
+      //cargar el producto en la tabla
+      crearFila(productoNuevo);
 
 }
 
@@ -67,4 +78,27 @@ function limpiarFormulario(){
 
 function guardarLocalStorage() {
     localStorage.setItem('arregloProductosKey', JSON.stringify(listaProductos))
+}
+
+function crearFila(producto){
+    let tablaProductos = document.getElementById('tablaProductos');
+    tablaProductos.innerHTML += `<tr>
+    <th scope="row">${producto.codigo}</th>
+    <td>${producto.producto}</td>
+    <td>${producto.descripcion}</td>
+    <td>${producto.cantidad}</td>
+    <td>${producto.url}</td>
+    <td>
+        <button class="btn btn-warning" type="submit">Editar</button> <br>
+        <button class="btn btn-danger" type="submit">Borrar</button>
+    </td>
+
+</tr>`
+}
+
+function cargaInicial(){
+    if(listaProductos.lenght > 0 ){
+        //crear filas
+        listaProductos.forEach((itemProducto) => {crearFila(itemProducto)});
+    }
 }
