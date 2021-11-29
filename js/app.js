@@ -12,7 +12,10 @@ let campoURL = document.querySelector('#url');
 let formularioProducto = document.querySelector('#formProducto');
 //si hay algo en el arreglo, quiero guardarlo. Si no, que sea un arreglo vacio.
 let listaProductos = JSON.parse(localStorage.getItem('arregloProductosKey')) || [];
-console.log(listaProductos)
+let productoExistente = false; // si productoExistente es false, quiero crear, si es true entonces quiero modificar un producto existente.
+
+
+
 
 // asociar un evento a un elemento html
 campoCodigo.addEventListener('blur', () => {
@@ -39,8 +42,12 @@ function guardarProducto(e){
     // verificar que todos los datos sean validados
         e.preventDefault()
         if(validarGeneral(campoCodigo,campoProducto,campoDescripcion,campoCantidad,campoURL)){
+            if(productoExistente == false){
             //crear un producto
             crearProducto();
+            }else{
+            modificarProducto();
+            }
         }
     
 }
@@ -58,7 +65,7 @@ function crearProducto(){
     //mostrar un cartel al usuario!
     Swal.fire(
         'Producto cargado con exito',
-        'Capo',
+        'Sos un capo',
         'success'
       )
       //cargar el producto en la tabla
@@ -89,11 +96,10 @@ function crearFila(producto){
     <td>${producto.cantidad}</td>
     <td>${producto.url}</td>
     <td>
-        <button class="btn btn-warning" onclick='prepararEdicionProducto()' type="submit">Editar</button> <br>
-        <button class="btn btn-danger" type="submit">Borrar</button>
+        <button class="btn btn-warning" onclick='prepararEdicionProducto("${producto.codigo}")'>Editar</button> <br>
+        <button class="btn btn-danger">Borrar</button>
     </td>
-
-</tr>`
+</tr>`;
 }
 
 function cargaInicial(){
@@ -103,6 +109,43 @@ function cargaInicial(){
     }
 }
 
-window.prepararEdicionProducto = function (){
+window.prepararEdicionProducto = function (codigo){
     console.log('desde editar')
+    console.log(codigo)
+    //buscar el producto en el arreglo
+    let productoBuscado = listaProductos.find((itemProducto)=>{return itemProducto.codigo == codigo})
+    console.log(productoBuscado)
+    //mostrar el producto en el formulario
+    campoCodigo.value = productoBuscado.codigo;
+    campoProducto.value = productoBuscado.producto;
+    campoDescripcion.value = productoBuscado.descripcion;
+    campoCantidad.value = productoBuscado.cantidad;
+    campoURL.value = productoBuscado.url;
+
+    productoExistente=true
+}
+
+function modificarProducto(){
+    console.log('desde modificar producto')
+    //encontrar la posicion del elemento que quiero modificar dentro del arreglo del producto
+    let posicionObjetoBuscado = listaProductos.findIndex((itemProducto)=>{return itemProducto.codigo === campoCodigo.value });
+    console.log(posicionObjetoBuscado)
+    //modificar los valores del arreglo
+    listaProductos[posicionObjetoBuscado].producto =campoProducto.value
+    listaProductos[posicionObjetoBuscado].descripcion =campoDescripcion.value
+    listaProductos[posicionObjetoBuscado].url = campoURL.value;
+    listaProductos[posicionObjetoBuscado].cantidad = campoCantidad.value;
+
+    //actualizar el localstorage
+
+    guardarLocalStorage();
+    //actualizar la tabla
+    borrarTabla();
+    cargaInicial();
+    
+}
+
+function borrarTabla(){
+    let tbodyProductos = document.querySelector('#tablaProductos');
+    tbodyProductos.innerHTML ='';
 }
