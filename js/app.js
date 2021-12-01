@@ -13,7 +13,7 @@ let formularioProducto = document.querySelector('#formProducto');
 //si hay algo en el arreglo, quiero guardarlo. Si no, que sea un arreglo vacio.
 let listaProductos = JSON.parse(localStorage.getItem('arregloProductosKey')) || [];
 let productoExistente = false; // si productoExistente es false, quiero crear, si es true entonces quiero modificar un producto existente.
-
+let btnNuevo = document.getElementById('btnNuevo')
 
 
 
@@ -34,6 +34,7 @@ campoURL.addEventListener('blur', () => {
     validarURL(campoURL)
 });
 formularioProducto.addEventListener('submit', guardarProducto);
+btnNuevo.addEventListener('click',limpiarFormulario);
 
 //llamo a carga inicial
 cargaInicial();
@@ -67,7 +68,7 @@ function crearProducto(){
         'Producto cargado con exito',
         'Sos un capo',
         'success'
-      )
+      );
       //cargar el producto en la tabla
       crearFila(productoNuevo);
 
@@ -81,6 +82,7 @@ function limpiarFormulario(){
     campoDescripcion.className = 'form-control'
     campoCantidad.className = 'form-control'
     campoURL.className = 'form-control'
+    productoExistente = false;
 }
 
 function guardarLocalStorage() {
@@ -142,7 +144,14 @@ function modificarProducto(){
     //actualizar la tabla
     borrarTabla();
     cargaInicial();
-    
+    //MOSTRAR UN CARTEL
+    Swal.fire(
+        'El producto fue actualizado',
+        'Sos un capo',
+        'success'
+      )
+    //LIMPIAR FORMULARIO
+    limpiarFormulario()
 }
 
 function borrarTabla(){
