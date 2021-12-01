@@ -4,11 +4,11 @@ console.log(listaProductos)
 listaProductos.forEach((item) => {crearColumnas(item)});
 
 function crearColumnas(producto){
-    let grilla = document.querySelector('grilla');
+    let grilla = document.querySelector('#grilla');
     grilla.innerHTML += `<div class="col-sm-3" >
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">${producto.nombre}</h5>
+            <h5 class="card-title">${producto.producto}</h5>
             <img src="${producto.url}"
                 class="card-img-top w-200" alt="...">
             <p class="card-text">${producto.descripcion}</p>

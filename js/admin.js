@@ -1,5 +1,5 @@
-import{campoRequerido,validarNumeros,validarURL,validarGeneral} from './validaciones.js'
-import{Producto} from './productoClass.js';
+import{campoRequerido,validarNumeros,validarURL,validarGeneral} from "./validaciones.js"
+import{Producto} from "./productoClass.js";
 
 
 
@@ -105,7 +105,7 @@ function crearFila(producto){
 }
 
 function cargaInicial(){
-    if(listaProductos.lenght > 0 ){
+    if(listaProductos.length > 0 ){
         //crear filas
         listaProductos.forEach((itemProducto) => {crearFila(itemProducto)});
     }
