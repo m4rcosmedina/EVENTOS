@@ -92,14 +92,14 @@ function guardarLocalStorage() {
 function crearFila(producto){
     let tablaProductos = document.getElementById('tablaProductos');
     tablaProductos.innerHTML += `<tr>
-    <th scope="row">${producto.codigo}</th>
+    <td>${producto.codigo}</td>
     <td>${producto.producto}</td>
     <td>${producto.descripcion}</td>
     <td>${producto.cantidad}</td>
     <td>${producto.url}</td>
     <td>
         <button class="btn btn-warning" onclick='prepararEdicionProducto("${producto.codigo}")'>Editar</button> <br>
-        <button class="btn btn-danger">Borrar</button>
+        <button class="btn btn-danger"  onclick='borrarProducto("${producto.splice}")'>Borrar</button>
     </td>
 </tr>`;
 }
@@ -157,4 +157,23 @@ function modificarProducto(){
 function borrarTabla(){
     let tbodyProductos = document.querySelector('#tablaProductos');
     tbodyProductos.innerHTML ='';
+}
+
+window.borrarProducto = function(codigo){
+    console.log(codigo);
+    //buscar posicion del elemento en el arreglo y borrarlo.
+    let arregloNuevo = listaProductos.filter((item)=>{return item.codigo != codigo});
+   // console.log(arregloNuevo);
+   listaProductos = arregloNuevo;
+   guardarLocalStorage();
+   //actualizar la tabla
+   borrarTabla();
+   cargaInicial();
+   //mostrar cartel al usuario
+   Swal.fire(
+    'Producto eliminado',
+    'Al final no eras tan capo',
+    'success'
+  )
+
 }
